@@ -1,15 +1,42 @@
 
 
 function TodoItem(props){
-    return(
-        <>
-            <li><b>Todo: </b>{props.item.title}</li>
-            <label>
-            <input type="checkbox" name="completed" value="completed"/> Completed
-            </label>
-            <button class = "delete-btn" onclick="deleteItem(this)">Delete</button>
-        </>
-    )
+
+
+    if(props.item.completed === true){
+        return(
+            <>
+                
+                <li>
+                    <label>
+                    <input type="checkbox" name="completed" value="completed"/>
+                    </label>
+                    {props.item.title}
+                    <button class = "edit-btn">Edit</button>
+                    <button class = "delete-btn">Delete</button>
+                </li>
+
+
+            </>
+        )      
+    } else if(props.item.completed === false){
+        return(
+            <>
+                
+                <li>
+                    NEEDS COMPLETED
+                    <label>
+                    <input type="checkbox" name="completed" value="completed"/>
+                    </label>
+                    {props.item.title}
+                    <button class = "edit-btn">Edit</button>
+                    <button class = "delete-btn">Delete</button>
+                </li>
+
+
+            </>
+        )      
+    }
 }
 
 
