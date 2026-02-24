@@ -1,13 +1,25 @@
 import { useState } from 'react'
-import initialState from './services/Data'
+import initialState from './information/Data.jsx'
+import TodoItem from './components/TodoItem.jsx'
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
-      {console.log(initialState)}
+      <ul>
+        {initialState.map((item, index)=>  
+          <span className="item" key={index}>
+            <TodoItem item = {item}/>
+
+          </span>
+        )}
+      </ul>
+
     </>
   )
 }
+
+
+
 
 export default App
