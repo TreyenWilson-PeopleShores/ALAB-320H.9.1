@@ -1,7 +1,20 @@
+import { useReducer } from 'react';
+import initialState from '../information/Data.jsx'
+
+
 
 
 function TodoItem(props){
 
+function reducer(state, action){
+    if(action.type ==="delete"){
+      console.log("Deleted")
+    }else if(action.type ==="edit"){
+      console.log("Edit")
+    }
+    return state;
+  }
+const [state, dispatch] = useReducer(reducer, initialState);
 
     if(props.item.completed === true){
         return(
@@ -12,8 +25,8 @@ function TodoItem(props){
                     <input type="checkbox" name="completed" defaultChecked/>
                     </label>
                     {props.item.title}
-                    <button className = "edit-btn">Edit</button>
-                    <button className = "delete-btn">Delete</button>
+                    <button className = "edit-btn" onClick={()=> dispatch({type: "edit"})}>Edit</button>
+                    <button className = "delete-btn" onClick={()=> dispatch({type: "delete"})}>Delete</button>
                 </li>
 
 
@@ -28,8 +41,8 @@ function TodoItem(props){
                     <input type="checkbox" name="completed"/>
                     </label>
                     {props.item.title}
-                    <button className = "edit-btn">Edit</button>
-                    <button className = "delete-btn" disabled>Delete</button>
+                    <button className = "edit-btn" onClick={()=> dispatch({type: "edit"})}>Edit</button>
+                    <button className = "delete-btn" onClick={()=> dispatch({type: "delete"})} disabled>Delete</button>
                 </li>
 
 
