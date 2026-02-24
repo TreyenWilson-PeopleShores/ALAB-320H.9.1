@@ -1,11 +1,11 @@
 import { useState } from 'react'
-
+import initialState from './services/Data'
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-     <p>test</p>
+      {console.log(initialState)}
     </>
   )
 }
