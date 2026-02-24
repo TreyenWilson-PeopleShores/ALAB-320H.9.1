@@ -9,7 +9,7 @@ function TodoItem(props){
                 
                 <li>
                     <label>
-                    <input type="checkbox" name="completed" value="completed"/>
+                    <input type="checkbox" name="completed" checked/>
                     </label>
                     {props.item.title}
                     <button class = "edit-btn">Edit</button>
@@ -24,13 +24,12 @@ function TodoItem(props){
             <>
                 
                 <li>
-                    NEEDS COMPLETED
                     <label>
-                    <input type="checkbox" name="completed" value="completed"/>
+                    <input type="checkbox" name="completed"/>
                     </label>
                     {props.item.title}
                     <button class = "edit-btn">Edit</button>
-                    <button class = "delete-btn">Delete</button>
+                    <button class = "delete-btn" disabled>Delete</button>
                 </li>
 
 
