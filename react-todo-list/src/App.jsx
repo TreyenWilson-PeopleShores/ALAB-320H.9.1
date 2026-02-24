@@ -8,19 +8,19 @@ function App() {
     <>
       <ul>
         <input type="text" name="add-task" placeholder="Add Task"/>
-        <button class = "add-btn">Add</button>
+        <button className = "add-btn">Add</button>
         {initialState.map((item, index)=>  
           <span className="item" key={index}>
-            <TodoItem item = {item}/>
+            <TodoItem item = {item} counter={index}/>
 
           </span>
           
         )}
         <input type="checkbox" name="completed"/>
         <input type="text" name="change-item" placeholder="Text to change Item"/>
-        <button class = "save-btn">Save</button>
+        <button className = "save-btn">Save</button>
       </ul>
-
+      {console.log(document.querySelector("li"))}
     </>
   )
 }

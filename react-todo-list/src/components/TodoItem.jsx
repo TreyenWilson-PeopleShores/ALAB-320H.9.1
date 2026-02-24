@@ -7,13 +7,13 @@ function TodoItem(props){
         return(
             <>
                 
-                <li>
+                <li id={props.counter}>
                     <label>
-                    <input type="checkbox" name="completed" checked/>
+                    <input type="checkbox" name="completed" defaultChecked/>
                     </label>
                     {props.item.title}
-                    <button class = "edit-btn">Edit</button>
-                    <button class = "delete-btn">Delete</button>
+                    <button className = "edit-btn">Edit</button>
+                    <button className = "delete-btn">Delete</button>
                 </li>
 
 
@@ -23,13 +23,13 @@ function TodoItem(props){
         return(
             <>
                 
-                <li>
+                <li id={props.counter}>
                     <label>
                     <input type="checkbox" name="completed"/>
                     </label>
                     {props.item.title}
-                    <button class = "edit-btn">Edit</button>
-                    <button class = "delete-btn" disabled>Delete</button>
+                    <button className = "edit-btn">Edit</button>
+                    <button className = "delete-btn" disabled>Delete</button>
                 </li>
 
 
