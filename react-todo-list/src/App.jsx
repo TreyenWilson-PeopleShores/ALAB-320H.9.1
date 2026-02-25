@@ -34,7 +34,7 @@ function App() {
           
         )}
         <input type="checkbox" name="completed"/>
-        <input type="text" name="change-item" placeholder="Text to change Item"/>
+        <input type="text" name="change-item" placeholder="Add Interactivity"/>
         <button className = "save-btn" onClick={()=> dispatch({type: "save"})}>Save</button>
       </ul>
       {console.log(document.getElementById("1"))}
