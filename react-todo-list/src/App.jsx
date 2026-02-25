@@ -21,8 +21,9 @@ let firstItem = 0;//This tracks what todo item
       let firstInitialItem = upperParentItem.firstChild.nextSibling.nextSibling;
       let lastInitialItem = upperParentItem.lastChild.previousSibling.previousSibling.previousSibling
       console.log("Before:", upperParentItem.children)
-      firstInitialItem.innerHTML = "<h1>test</h1>"
-     
+      upperParentItem.firstChild.nextSibling.nextSibling.innerHTML += document.createElement("li").innerHTML = `<li>test</li>`
+      console.log("After:", upperParentItem.children)
+
     }
     return state;
   }
@@ -40,6 +41,8 @@ function App() {
       <ul>
         <input type="text" name="add-task" placeholder="Add Task"/>
         <button className = "add-btn" onClick={()=> dispatch({type: "add",})}>Add</button>
+         <span className = "todoItem"></span>
+         {/*This empyu span list is here so the added item is able to be placed before the actual current item*/}
         {initialState.map((item, index)=>  
           <span className="item" key={index}>
             <TodoItem item = {item} counter={index}/>
