@@ -17,10 +17,11 @@ let firstItem = 0;//This tracks what todo item
 
     }else if(action.type ==="add"){
       console.log("Added")
-      let originalFirstItem = document.querySelector("li");
-      originalFirstItem.firstElementChild.innerHTML = `${originalFirstItem.innerHTML} <br><input type="checkbox" name="completed"/>`//<li>>2${originalFirstItem.innerHTML}</li>`
-      //firstItem-=1;
-      
+      let upperParentItem = document.getElementById(`${firstItem}`).parentElement.parentElement;
+      let firstInitialItem = upperParentItem.firstChild.nextSibling.nextSibling;
+      let lastInitialItem = upperParentItem.lastChild.previousSibling.previousSibling.previousSibling
+      console.log("Before:", upperParentItem.children)
+      firstInitialItem.innerHTML = "<h1>test</h1>"
      
     }
     return state;
@@ -50,7 +51,10 @@ function App() {
         <input type="text" name="change-item" placeholder="Add Interactivity"/>
         <button className = "save-btn" onClick={()=> dispatch({type: "save"})}>Save</button>
       </ul>
-      {console.log(document.getElementById(`${firstItem}`))}
+      {/*console.log(document.getElementById(`${firstItem}`).parentElement.parentElement.childElementCount)*/}
+      {/* Subtract this number from 5 to get the total amount of todo items - RANDOMLY BREAKS
+      first item starts at 0 initially.*/}
+      
     </>
   )
 }

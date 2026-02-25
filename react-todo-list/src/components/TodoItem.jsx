@@ -6,6 +6,10 @@ import initialState from '../information/Data.jsx'
 
 function TodoItem(props){
 
+
+
+
+
 function reducer(state, action){
     let actions = {
         TOGGLE:{
