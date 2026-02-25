@@ -13,15 +13,22 @@ function reducer(state, action){
             activeID: action.payload
         }
     }
+    let number = 1;
     if(action.type ==="delete"){
       document.getElementById(action.payload).innerHTML="DELETED"
       
     }else if(action.type ==="edit"){
-      console.log("Edit")
+        if (number === 1){
+            console.log("Edit");
+            let input = window.prompt("Edit your task below:");
+            document.getElementById(action.payload).innerHTML=`${input}`
+        } 
+
     }
     return state;
   }
 const [state, dispatch] = useReducer(reducer, initialState);
+
 
     if(props.item.completed === true){
         return(
@@ -32,7 +39,7 @@ const [state, dispatch] = useReducer(reducer, initialState);
                     <input type="checkbox" name="completed" defaultChecked/>
                     </label>
                     {props.item.title}
-                    <button className = "edit-btn" onClick={()=> dispatch({type: "edit"})}>Edit</button>
+                    <button className = "edit-btn" onClick={(e)=> dispatch({type: "edit", payload: e.currentTarget.parentElement.id})}>Edit</button>
                     <button className = "delete-btn" onClick={(e)=> dispatch({type: "delete", payload: e.currentTarget.parentElement.id})}>Delete</button>
                 </li>
 
@@ -48,8 +55,8 @@ const [state, dispatch] = useReducer(reducer, initialState);
                     <input type="checkbox" name="completed"/>
                     </label>
                     {props.item.title}
-                    <button className = "edit-btn" onClick={()=> dispatch({type: "edit"})}>Edit</button>
-                    <button className = "delete-btn" onClick={()=> dispatch({type: "delete"})} disabled>Delete</button>
+                    <button className = "edit-btn" onClick={(e)=> dispatch({type: "edit", payload: e.currentTarget.parentElement.id})}>Edit</button>
+                    <button className = "delete-btn" onClick={(e)=> dispatch({type: "delete", payload: e.currentTarget.parentElement.id})} disabled>Delete</button>
                 </li>
 
 
