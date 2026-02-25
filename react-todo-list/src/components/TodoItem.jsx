@@ -31,7 +31,6 @@ const [state, dispatch] = useReducer(reducer, initialState);
     if(props.item.completed === true){
         return(
             <>
-                
                 <li id={props.counter}>
                     <label>
                     <input type="checkbox" name="completed" defaultChecked/>
@@ -43,13 +42,11 @@ const [state, dispatch] = useReducer(reducer, initialState);
                     <button className = "delete-btn" onClick={(e)=> dispatch({type: "delete", payload: e.currentTarget.parentElement.id})}>Delete</button>
                 </li>
 
-
             </>
         )      
     } else if(props.item.completed === false){
         return(
             <>
-                
                 <li id={props.counter}>
                     <label>
                     <input type="checkbox" name="completed"/>
