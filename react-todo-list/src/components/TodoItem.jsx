@@ -13,16 +13,14 @@ function reducer(state, action){
             activeID: action.payload
         }
     }
-    let number = 1;
     if(action.type ==="delete"){
       document.getElementById(action.payload).innerHTML="DELETED"
       
     }else if(action.type ==="edit"){
-        if (number === 1){
+        
             console.log("Edit");
             let input = window.prompt("Edit your task below:");
-            document.getElementById(action.payload).innerHTML=`${input}`
-        } 
+            document.getElementById(action.payload).firstChild.nextSibling.textContent=`${input}`
 
     }
     return state;
@@ -38,7 +36,9 @@ const [state, dispatch] = useReducer(reducer, initialState);
                     <label>
                     <input type="checkbox" name="completed" defaultChecked/>
                     </label>
+                    <span className = "todoItem">
                     {props.item.title}
+                    </span>
                     <button className = "edit-btn" onClick={(e)=> dispatch({type: "edit", payload: e.currentTarget.parentElement.id})}>Edit</button>
                     <button className = "delete-btn" onClick={(e)=> dispatch({type: "delete", payload: e.currentTarget.parentElement.id})}>Delete</button>
                 </li>
