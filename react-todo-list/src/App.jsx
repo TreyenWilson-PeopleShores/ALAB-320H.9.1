@@ -2,9 +2,10 @@ import { useState } from 'react'
 import initialState from './information/Data.jsx'
 import TodoItem from './components/TodoItem.jsx'
 import { useReducer } from 'react';
-
+import AddTask from './components/TodoItem.jsx'
 let firstItem = 0;//This tracks what todo item
 // is,  it's the first item in the list
+let number = 0;
   function reducer(state, action){
         let actions = {
         TOGGLE:{
@@ -21,12 +22,30 @@ let firstItem = 0;//This tracks what todo item
       let firstInitialItem = upperParentItem.firstChild.nextSibling.nextSibling;
       let lastInitialItem = upperParentItem.lastChild.previousSibling.previousSibling.previousSibling
       console.log("Before:", upperParentItem.children)
-      upperParentItem.firstChild.nextSibling.nextSibling.innerHTML += document.createElement("li").innerHTML = `<li>test</li>`
+      const li = document.createElement("li");
+      li.innerHTML = `                <li>
+                    <label>
+                    <input type="checkbox" name="completed" defaultChecked/>
+                    </label>
+                    <span className = "todoItem">
+                    test
+                    </span>
+                    <button className = "edit-btn" onClick={(e)=> dispatch({type: "edit", payload: e.currentTarget.parentElement.id})}>Edit</button>
+                    <button className = "delete-btn" onClick={(e)=> dispatch({type: "delete", payload: e.currentTarget.parentElement.id})}>Delete</button>
+                </li>`
+      
+
+
+      firstInitialItem.appendChild(li);
+      number+=1;
       console.log("After:", upperParentItem.children)
+      
+
 
     }
     return state;
   }
+
 
 
 function App() {

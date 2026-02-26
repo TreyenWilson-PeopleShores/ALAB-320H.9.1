@@ -2,9 +2,17 @@ import { useReducer } from 'react';
 import initialState from '../information/Data.jsx'
 
 
+export function AddTask(){
+    return(
+    <>
+    <input type="text" name="add-task" placeholder="Add Task"/>
+    <button className = "add-btn" onClick={()=> dispatch({type: "add",})}>Add</button>
+    <span className = "todoItem"></span>
+    </>
+    )
+}
 
-
-function TodoItem(props){
+export function TodoItem(props){
 
 
 
