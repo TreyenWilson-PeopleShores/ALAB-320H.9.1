@@ -118,6 +118,8 @@ function App() {
         <input type="checkbox" name="completed"/>
         <input type="text" name="change-item" placeholder="Add Interactivity"/>
         <button className = "save-btn" onClick={()=> dispatch({type: "save"})}>Save</button>
+        {/* I don't know what the lesson means that the save button 'save any changes made to the todo within the text input'
+        Isn't that the ADD button's job???? I just didn't add functionality to save, since I don't know what they want. */}
       </ul>
       {/*console.log(document.getElementById(`${firstItem}`).parentElement.parentElement.childElementCount)*/}
       {/* Subtract this number from 5 to get the total amount of todo items - RANDOMLY BREAKS

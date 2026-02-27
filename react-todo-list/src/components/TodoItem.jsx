@@ -37,7 +37,7 @@ function reducer(state, action){
     } else if(action.type == "click"){
         //console.log("Clicked");
         let listItem = document.getElementById(action.payload);
-        let deleteBttn = listItem.querySelector(".delete-btn")
+        let deleteBttn = listItem.querySelector(".delete-btn");
         if(action.isChecked === true){
           deleteBttn.disabled = false;
         }else if(action.isChecked === false) {
@@ -67,14 +67,17 @@ const [state, dispatch] = useReducer(reducer, initialState);
         )      
     } else if(props.item.completed === false){
         return(
-            <>
+            <>  
                 <li id={props.counter}>
                     <label>
-                    <input type="checkbox" name="completed" onChange={(e)=> dispatch({type: "click", payload: props.counter, isChecked: e.target.checked})}/>
+                    <input type="checkbox" name="completed" onChange={(e)=> dispatch({type: "click", payload: props.counter, isChecked: e.target.checked})} />
+                    
                     </label>
+                    <span className = "todoItem">
                     {props.item.title}
+                    </span>
                     <button className = "edit-btn" onClick={(e)=> dispatch({type: "edit", payload: e.currentTarget.parentElement.id})}>Edit</button>
-                    <button className = "delete-btn" onClick={(e)=> dispatch({type: "delete", payload: e.currentTarget.parentElement.id})} disabled>Delete</button>
+                    <button className = "delete-btn" onClick={(e)=> dispatch({type: "delete", payload: e.currentTarget.parentElement.id})} ref={(btn) => {if(btn){ btn.disabled = true;}}}>Delete</button>
                 </li>
 
 
