@@ -71,8 +71,8 @@ let uniqueId = -1 // GOES DOEN ON PURPOSE
       li.appendChild(editBttn); // This is manually adding the 
       // add button. Need to add
       li.appendChild(deleteBttn);
-      firstInitialItem.appendChild(span);
-      span.appendChild(li);
+      firstInitialItem.prepend(span);
+      span.prepend(li);
       number+=1;
       console.log("After:", upperParentItem.children)
       
