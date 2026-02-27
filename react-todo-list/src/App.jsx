@@ -6,6 +6,7 @@ import AddTask from './components/TodoItem.jsx'
 let firstItem = 0;//This tracks what todo item
 // is,  it's the first item in the list
 let number = 0;
+let uniqueId = -1 // GOES DOEN ON PURPOSE
   function reducer(state, action){
         let actions = {
         TOGGLE:{
@@ -34,10 +35,15 @@ let number = 0;
       deleteBttn.onclick = function(){
         // Delete Button Logic here
         console.log("Delete clicked!")
+        deleteBttn.previousElementSibling.previousElementSibling.innerHTML = "MISSING";
+        //deleteBttn.parentElement.innerHTML = "MISSING";
+        
+      
       }
       console.log("Before:", upperParentItem.children)
       const li = document.createElement("li");
-      li.innerHTML = `                <li>
+      li.innerHTML = `
+                    <li>
                     <label>
                     <input type="checkbox" name="completed" defaultChecked/>
                     </label>
@@ -48,8 +54,8 @@ let number = 0;
                     
                     </li>`
       console.log(li.querySelector(".edit-btn"))
-
-
+      uniqueId-=1;
+      
       firstInitialItem.appendChild(li);
       firstInitialItem.appendChild(editBttn); // This is manually adding the 
       // add button. Need to add
