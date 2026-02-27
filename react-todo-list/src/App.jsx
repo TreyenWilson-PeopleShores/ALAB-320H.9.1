@@ -21,6 +21,20 @@ let number = 0;
       let upperParentItem = document.getElementById(`${firstItem}`).parentElement.parentElement;
       let firstInitialItem = upperParentItem.firstChild.nextSibling.nextSibling;
       let lastInitialItem = upperParentItem.lastChild.previousSibling.previousSibling.previousSibling
+      let editBttn = document.createElement("button");
+      editBttn.innerText = "Edit";
+      editBttn.onclick = function(){
+        // Able to properly add the edit button to the correct location, make sure
+        // to append the delete button AFTER this
+        console.log("Edit clicked!")
+      }
+      //Delete button logic below
+      let deleteBttn = document.createElement("button");
+      deleteBttn.innerText = "Delete";
+      deleteBttn.onclick = function(){
+        // Delete Button Logic here
+        console.log("Delete clicked!")
+      }
       console.log("Before:", upperParentItem.children)
       const li = document.createElement("li");
       li.innerHTML = `                <li>
@@ -30,13 +44,16 @@ let number = 0;
                     <span className = "todoItem">
                     test
                     </span>
-                    <button className = "edit-btn" onClick={(e)=> dispatch({type: "edit", payload: e.currentTarget.parentElement.id})}>Edit</button>
-                    <button className = "delete-btn" onClick={(e)=> dispatch({type: "delete", payload: e.currentTarget.parentElement.id})}>Delete</button>
-                </li>`
-      
+                    
+                    
+                    </li>`
+      console.log(li.querySelector(".edit-btn"))
 
 
       firstInitialItem.appendChild(li);
+      firstInitialItem.appendChild(editBttn); // This is manually adding the 
+      // add button. Need to add
+      firstInitialItem.appendChild(deleteBttn);
       number+=1;
       console.log("After:", upperParentItem.children)
       
