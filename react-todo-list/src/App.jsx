@@ -29,12 +29,12 @@ let uniqueId = -1 // GOES DOEN ON PURPOSE
       const li = document.createElement("li");
       li.innerHTML = `
                     <li>
-                    <label>
-                    <input type="checkbox" name="completed" defaultChecked/>
-                    </label>
-                    <span className = "todoItem">
-                    test
-                    </span>
+                      <label>
+                      <input type="checkbox" name="completed" defaultChecked/>
+                      </label>
+                      <span className = "todoItem">
+                      test
+                      </span>
                     
                     
                     </li>`
@@ -47,6 +47,8 @@ let uniqueId = -1 // GOES DOEN ON PURPOSE
         // Able to properly add the edit button to the correct location, make sure
         // to append the delete button AFTER this
         console.log("Edit clicked!")
+        let input = window.prompt("Edit your task below:");
+        li.firstElementChild.innerHTML=`${input}`
       }
       //Delete button logic below
       let deleteBttn = document.createElement("button");
@@ -63,6 +65,8 @@ let uniqueId = -1 // GOES DOEN ON PURPOSE
       console.log(li.querySelector(".edit-btn"))
       uniqueId-=1;
       
+      let input = window.prompt("Edit your task below:"); // Grabs initial input
+      li.firstElementChild.innerHTML=`${input}`
       
       li.appendChild(editBttn); // This is manually adding the 
       // add button. Need to add
