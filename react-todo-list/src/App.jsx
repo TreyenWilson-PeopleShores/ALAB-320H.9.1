@@ -30,6 +30,14 @@ let uniqueId = -1 // GOES DOEN ON PURPOSE
       let checkbox = document.createElement("input");
       checkbox.type = "checkbox";
       checkbox.name = "completed"
+      checkbox.onchange = function(e){
+        if(e.target.checked === true){
+          deleteBttn.disabled = false;
+        }else {
+          deleteBttn.disabled = true;
+        }
+      }
+
       let spanInner = document.createElement("span");
       spanInner.className = "todoItem";
       li.innerHTML = ``;
