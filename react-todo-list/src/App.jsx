@@ -36,9 +36,7 @@ let uniqueId = -1 // GOES DOEN ON PURPOSE
       let input = window.prompt("Edit your task below:"); // Grabs initial input
       spanInner.innerText=`${input}`
      
-      
-      li.appendChild(checkbox);
-      li.appendChild(spanInner);
+
       let editBttn = document.createElement("button");
       editBttn.innerText = "Edit";
       editBttn.onclick = function(){
@@ -46,11 +44,18 @@ let uniqueId = -1 // GOES DOEN ON PURPOSE
         // to append the delete button AFTER this
         console.log("Edit clicked!")
         let input = window.prompt("Edit your task below:");
-        li.firstElementChild.innerHTML=`${input}`
+        spanInner.innerText=`${input}`
       }
+
+
+      
+      li.appendChild(checkbox);
+      li.appendChild(spanInner);
+
       //Delete button logic below
       let deleteBttn = document.createElement("button");
       deleteBttn.innerText = "Delete";
+      deleteBttn.disabled = true;
       deleteBttn.onclick = function(){
         // Delete Button Logic here
         console.log("Delete clicked!")
