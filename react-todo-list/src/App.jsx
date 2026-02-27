@@ -22,6 +22,24 @@ let uniqueId = -1 // GOES DOEN ON PURPOSE
       let upperParentItem = document.getElementById(`${firstItem}`).parentElement.parentElement;
       let firstInitialItem = upperParentItem.firstChild.nextSibling.nextSibling;
       let lastInitialItem = upperParentItem.lastChild.previousSibling.previousSibling.previousSibling
+     
+     
+     console.log("Before:", upperParentItem.children)
+      const li = document.createElement("li");
+      li.innerHTML = `
+                    <li>
+                    <label>
+                    <input type="checkbox" name="completed" defaultChecked/>
+                    </label>
+                    <span className = "todoItem">
+                    test
+                    </span>
+                    
+                    
+                    </li>`
+     
+     
+     
       let editBttn = document.createElement("button");
       editBttn.innerText = "Edit";
       editBttn.onclick = function(){
@@ -35,31 +53,20 @@ let uniqueId = -1 // GOES DOEN ON PURPOSE
       deleteBttn.onclick = function(){
         // Delete Button Logic here
         console.log("Delete clicked!")
-        deleteBttn.previousElementSibling.previousElementSibling.innerHTML = "MISSING";
+        li.innerHTML = "MISSING";
         //deleteBttn.parentElement.innerHTML = "MISSING";
         
       
       }
-      console.log("Before:", upperParentItem.children)
-      const li = document.createElement("li");
-      li.innerHTML = `
-                    <li>
-                    <label>
-                    <input type="checkbox" name="completed" defaultChecked/>
-                    </label>
-                    <span className = "todoItem">
-                    test
-                    </span>
-                    
-                    
-                    </li>`
+      
       console.log(li.querySelector(".edit-btn"))
       uniqueId-=1;
       
-      firstInitialItem.appendChild(li);
-      firstInitialItem.appendChild(editBttn); // This is manually adding the 
+      
+      li.appendChild(editBttn); // This is manually adding the 
       // add button. Need to add
-      firstInitialItem.appendChild(deleteBttn);
+      li.appendChild(deleteBttn);
+      firstInitialItem.appendChild(li);
       number+=1;
       console.log("After:", upperParentItem.children)
       
