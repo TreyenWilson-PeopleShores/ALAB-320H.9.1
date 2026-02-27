@@ -30,10 +30,19 @@ function reducer(state, action){
       
     }else if(action.type ==="edit"){
         
-            console.log("Edit");
+            //console.log("Edit");
             let input = window.prompt("Edit your task below:");
             document.getElementById(action.payload).firstChild.nextSibling.textContent=`${input}`
 
+    } else if(action.type == "click"){
+        //console.log("Clicked");
+        let listItem = document.getElementById(action.payload);
+        let deleteBttn = listItem.querySelector(".delete-btn")
+        if(action.isChecked === true){
+          deleteBttn.disabled = false;
+        }else if(action.isChecked === false) {
+          deleteBttn.disabled = true;
+        }
     }
     return state;
   }
@@ -45,7 +54,7 @@ const [state, dispatch] = useReducer(reducer, initialState);
             <>
                 <li id={props.counter}>
                     <label>
-                    <input type="checkbox" name="completed" defaultChecked/>
+                    <input type="checkbox" name="completed" defaultChecked onChange={(e)=> dispatch({type: "click", payload: props.counter, isChecked: e.target.checked})}/>
                     </label>
                     <span className = "todoItem">
                     {props.item.title}
@@ -61,7 +70,7 @@ const [state, dispatch] = useReducer(reducer, initialState);
             <>
                 <li id={props.counter}>
                     <label>
-                    <input type="checkbox" name="completed"/>
+                    <input type="checkbox" name="completed" onChange={(e)=> dispatch({type: "click", payload: props.counter, isChecked: e.target.checked})}/>
                     </label>
                     {props.item.title}
                     <button className = "edit-btn" onClick={(e)=> dispatch({type: "edit", payload: e.currentTarget.parentElement.id})}>Edit</button>
