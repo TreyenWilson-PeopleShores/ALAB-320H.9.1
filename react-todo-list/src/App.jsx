@@ -25,6 +25,7 @@ let uniqueId = -1 // GOES DOEN ON PURPOSE
      
      
      console.log("Before:", upperParentItem.children)
+      const span = document.createElement("span");
       const li = document.createElement("li");
       li.innerHTML = `
                     <li>
@@ -53,7 +54,7 @@ let uniqueId = -1 // GOES DOEN ON PURPOSE
       deleteBttn.onclick = function(){
         // Delete Button Logic here
         console.log("Delete clicked!")
-        li.innerHTML = "MISSING";
+        li.parentElement.innerHTML = "";
         //deleteBttn.parentElement.innerHTML = "MISSING";
         
       
@@ -66,7 +67,8 @@ let uniqueId = -1 // GOES DOEN ON PURPOSE
       li.appendChild(editBttn); // This is manually adding the 
       // add button. Need to add
       li.appendChild(deleteBttn);
-      firstInitialItem.appendChild(li);
+      firstInitialItem.appendChild(span);
+      span.appendChild(li);
       number+=1;
       console.log("After:", upperParentItem.children)
       
