@@ -27,20 +27,18 @@ let uniqueId = -1 // GOES DOEN ON PURPOSE
      console.log("Before:", upperParentItem.children)
       const span = document.createElement("span");
       const li = document.createElement("li");
-      li.innerHTML = `
-                    <li>
-                      <label>
-                      <input type="checkbox" name="completed" defaultChecked/>
-                      </label>
-                      <span className = "todoItem">
-                      test
-                      </span>
-                    
-                    
-                    </li>`
+      let checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.name = "completed"
+      let spanInner = document.createElement("span");
+      spanInner.className = "todoItem";
+      li.innerHTML = ``;
+      let input = window.prompt("Edit your task below:"); // Grabs initial input
+      spanInner.innerText=`${input}`
      
-     
-     
+      
+      li.appendChild(checkbox);
+      li.appendChild(spanInner);
       let editBttn = document.createElement("button");
       editBttn.innerText = "Edit";
       editBttn.onclick = function(){
@@ -65,8 +63,7 @@ let uniqueId = -1 // GOES DOEN ON PURPOSE
       console.log(li.querySelector(".edit-btn"))
       uniqueId-=1;
       
-      let input = window.prompt("Edit your task below:"); // Grabs initial input
-      li.firstElementChild.innerHTML=`${input}`
+
       
       li.appendChild(editBttn); // This is manually adding the 
       // add button. Need to add

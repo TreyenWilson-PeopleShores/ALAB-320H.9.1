@@ -50,11 +50,8 @@ const [state, dispatch] = useReducer(reducer, initialState);
                     <span className = "todoItem">
                     {props.item.title}
                     </span>
-                   
-                </li>
-                <li>
-                    <button className = "edit-btn" onClick={(e)=> dispatch({type: "edit", payload: e.currentTarget.parentElement.previousElementSibling.id})}>Edit</button>
-                    <button className = "delete-btn" onClick={(e)=> dispatch({type: "delete", payload: e.currentTarget.parentElement.previousElementSibling.id})}>Delete</button>
+                    <button className = "edit-btn" onClick={(e)=> dispatch({type: "edit", payload: e.currentTarget.parentElement.id})}>Edit</button>
+                    <button className = "delete-btn" onClick={(e)=> dispatch({type: "delete", payload: e.currentTarget.parentElement.id})}>Delete</button>
                 </li>
 
             </>
@@ -67,12 +64,10 @@ const [state, dispatch] = useReducer(reducer, initialState);
                     <input type="checkbox" name="completed"/>
                     </label>
                     {props.item.title}
+                    <button className = "edit-btn" onClick={(e)=> dispatch({type: "edit", payload: e.currentTarget.parentElement.id})}>Edit</button>
+                    <button className = "delete-btn" onClick={(e)=> dispatch({type: "delete", payload: e.currentTarget.parentElement.id})} disabled>Delete</button>
+                </li>
 
-                </li>
-                <li>
-                    <button className = "edit-btn" onClick={(e)=> dispatch({type: "edit", payload: e.currentTarget.parentElement.previousElementSibling.id})}>Edit</button>
-                    <button className = "delete-btn" onClick={(e)=> dispatch({type: "delete", payload: e.currentTarget.parentElement.previousElementSibling.id})} disabled>Delete</button>
-                </li>
 
             </>
         )      
